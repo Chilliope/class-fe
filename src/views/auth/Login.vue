@@ -39,9 +39,9 @@
 
 <script setup>
 import { reactive } from 'vue';
-import useLogin from '../../service/auth';
+import useAuth from '../../service/auth';
 
-const { login } = useLogin()
+const { login } = useAuth()
 
 const forms = reactive({
     email: '',

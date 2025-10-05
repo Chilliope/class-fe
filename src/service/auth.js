@@ -3,7 +3,7 @@ import useSwal from "./swal"
 import { useRoute, useRouter } from "vue-router"
 import { ref } from "vue"
 
-export default function useLogin() {
+export default function useAuth() {
     const { accepted, rejected, confirm } = useSwal()
     const route = useRoute()
     const router = useRouter()
@@ -20,6 +20,11 @@ export default function useLogin() {
         }
     }
 
+    async function getUser() {
+        const response = await axios.get('/api/user')
+        user.value = response.data
+    }
+
     function setToken(token) {
         localStorage.setItem('auth_token', token)
         axios.defaults.headers.common.Authorization = `Bearer ${token}`
@@ -28,5 +33,6 @@ export default function useLogin() {
     return {
         user,
         login,
+        getUser
     }
 }
