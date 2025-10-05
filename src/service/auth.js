@@ -25,14 +25,31 @@ export default function useAuth() {
         user.value = response.data
     }
 
+    
+    async function logout() {
+        try {
+            const response = await axios.post('/api/v1/logout')
+            removeToken()
+            router.push('/login')
+        } catch (error) {
+            rejected('Logout Failed, try again')
+        }
+    }
+
     function setToken(token) {
         localStorage.setItem('auth_token', token)
         axios.defaults.headers.common.Authorization = `Bearer ${token}`
     }
 
+    function removeToken() {
+        localStorage.removeItem('auth_token')
+        axios.defaults.headers.common.Authorization = `Bearer `
+    }
+
     return {
         user,
         login,
+        logout,
         getUser
     }
 }

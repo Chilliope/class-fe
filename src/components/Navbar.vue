@@ -25,9 +25,11 @@
                         <span class="text-xs text-slate-400 capitalize">{{ user.role }}</span>
                     </div>
                 </div>
-                <button class="text-start rounded-lg hover:text-blue-500 hover:duration-150 flex gap-3 items-center">
-                    <LogOut class="w-4 h-4" />
-                </button>
+                <form @submit.prevent="doLogout">
+                    <button class="text-start rounded-lg hover:text-blue-500 hover:duration-150 flex gap-3 items-center">
+                        <LogOut class="w-4 h-4" />
+                    </button>
+                </form>
             </div>
         </div>
     </nav>
@@ -53,10 +55,12 @@
 
         <ul class="pt-2">
             <li>
-                <button class="w-full text-start rounded-lg text-blue-500 flex gap-3 items-center">
-                    <LogOut class="w-4 h-4" />
-                    <span>Sign Out</span>
-                </button>
+                <form @submit.prevent="doLogout">
+                    <button class="w-full text-start rounded-lg text-blue-500 flex gap-3 items-center">
+                        <LogOut class="w-4 h-4" />
+                        <span>Sign Out</span>
+                    </button>
+                </form>
             </li>
         </ul>
     </div>
@@ -72,7 +76,7 @@ const isPopup = ref(false)
 const popupRef = ref(null)
 const menuButtonRef = ref(null)
 const route = useRoute()
-const { getUser, user } = useAuth()
+const { getUser, user, logout } = useAuth()
 
 const items = [
     { path: '/dashboard', name: 'Dashboard', icon: Gauge },
@@ -103,4 +107,8 @@ onMounted(() => {
 onBeforeUnmount(() => {
     document.removeEventListener('click', handleClickOutside)
 })
+
+function doLogout() {
+    logout()
+}
 </script>

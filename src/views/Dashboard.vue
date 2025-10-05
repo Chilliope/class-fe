@@ -108,7 +108,7 @@
                             <img :src="'4.png'" alt="Member Picture" class="w-8 h-8 rounded-full">
                             <div class="flex flex-col">
                                 <span>Erlang Andriyanputra</span>
-                                <span class="text-slate-400 text-xs lg:text-sm capitalize">Lead</span>
+                                <span class="text-slate-400 text-xs lg:text-sm capitalize">lead</span>
                             </div>
                         </div>
                     </div>
