@@ -1,20 +1,26 @@
 import { createRouter, createWebHistory } from "vue-router";
-import App from "../App.vue"
+import Login from "../views/auth/Login.vue";
 import Index from "../views/Index.vue";
+import Dashboard from "../views/Dashboard.vue";
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
+            path: '/login',
+            name: 'Login',
+            component: Login
+        },
+        {
             path: '/',
-            name: 'App',
-            redirect: { path: '/home' },
-            component: App,
+            name: 'Index',
+            redirect: { path: '/dashboard' },
+            component: Index,
             children: [
                 {
-                    path: '/home',
-                    name: 'Home',
-                    component: Index
+                    path: '/dashboard',
+                    name: 'Dashboard',
+                    component: Dashboard
                 }
             ]
         }
