@@ -3,6 +3,7 @@ import Login from "../views/auth/Login.vue";
 import Index from "../views/Index.vue";
 import Dashboard from "../views/Dashboard.vue";
 import Project from "../views/Project/Project.vue";
+import Team from "../views/Team/Team.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -33,7 +34,12 @@ const router = createRouter({
                     path: '/project',
                     name: 'Project',
                     component: Project
-                }
+                },
+                {
+                    path: '/team',
+                    name: 'Team',
+                    component: Team
+                },
             ]
         }
     ]
