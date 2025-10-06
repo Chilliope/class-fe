@@ -15,6 +15,7 @@
 
             <div class="mt-3 grid grid-cols-1 lg:grid-cols-3 gap-3">
                 <router-link v-for="course in courses" :key="course.name"
+                    :to="'class/' + course.path"
                     class="relative bg-white w-full h-max shadow-xs rounded-lg overflow-hidden hover:shadow-md transition-all duration-200">
                     <!-- Gambar -->
                     <img :src="`/class/${course.image}`" alt="" class="w-full rounded-t-lg">
@@ -128,7 +129,7 @@ const { getUser, user } = useAuth()
 
 const currentClass = [
     {
-        path: '/course/hypertext-markup-language',
+        path: 'hypertext-markup-language',
         name: 'Hypertext Markup Language',
         image: 'html.png',
         module: 8,
@@ -142,7 +143,7 @@ const currentClass = [
 // Contoh daftar kursus
 const courses = [
     {
-        path: '/course/hypertext-markup-language',
+        path: 'hypertext-markup-language',
         name: 'Hypertext Markup Language',
         image: 'html.png',
         module: 8,
@@ -152,7 +153,7 @@ const courses = [
         unlocked: true // hanya HTML yang terbuka
     },
     {
-        path: '/course/cascading-style-sheet',
+        path: 'cascading-style-sheet',
         name: 'Cascading Style Sheet',
         image: 'css.png',
         module: 8,
@@ -162,7 +163,7 @@ const courses = [
         unlocked: false
     },
     {
-        path: '/course/javascript',
+        path: 'javascript',
         name: 'Javascript',
         image: 'js.png',
         module: 24,
@@ -172,7 +173,7 @@ const courses = [
         unlocked: false
     },
     {
-        path: '/course/github',
+        path: 'github',
         name: 'GitHub',
         image: 'github.png',
         module: 1,
@@ -182,7 +183,7 @@ const courses = [
         unlocked: false
     },
     {
-        path: '/course/bootstrap',
+        path: 'bootstrap',
         name: 'Bootstrap',
         image: 'bootstrap.png',
         module: 6,
@@ -192,7 +193,7 @@ const courses = [
         unlocked: false
     },
     {
-        path: '/course/php',
+        path: 'php',
         name: 'PHP',
         image: 'php.png',
         module: 24,
@@ -202,7 +203,7 @@ const courses = [
         unlocked: false
     },
     {
-        path: '/course/laravel',
+        path: 'laravel',
         name: 'Laravel',
         image: 'laravel.png',
         module: 24,
@@ -212,7 +213,7 @@ const courses = [
         unlocked: false
     },
     {
-        path: '/course/tailwind-css',
+        path: 'tailwind-css',
         name: 'Tailwind CSS',
         image: 'tailwind.png',
         module: 10,
@@ -222,7 +223,7 @@ const courses = [
         unlocked: false
     },
     {
-        path: '/course/vuejs',
+        path: 'vuejs',
         name: 'Vue.JS',
         image: 'vue.png',
         module: 10,

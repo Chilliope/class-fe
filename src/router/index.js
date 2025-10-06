@@ -31,6 +31,11 @@ const router = createRouter({
                     component: Dashboard
                 },
                 {
+                    path: '/class/:class',
+                    name: 'Class',
+                    component: () => import('../views/Class/Class.vue')
+                },
+                {
                     path: '/project',
                     name: 'Project',
                     component: Project

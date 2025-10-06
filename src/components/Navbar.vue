@@ -2,7 +2,7 @@
     <nav class="bg-white shadow-xs w-full h-16 flex justify-center px-4 py-2">
         <div class="w-full lg:w-[1200px] flex justify-between items-center">
             <div>
-                <img :src="'educafy.png'" alt="" class="w-full h-12 object-cover" />
+                <img :src="'/educafy.png'" alt="" class="w-full h-12 object-cover" />
             </div>
             <div class="lg:hidden">
                 <button ref="menuButtonRef" @click.stop="togglePopup">
@@ -19,7 +19,7 @@
             </ul>
             <div class="hidden lg:flex gap-6 items-center">
                 <div class="flex gap-2 items-center">
-                    <img :src="'default.jpg'" alt="User Picture" class="w-9 h-9 object-cover rounded-full">
+                    <img :src="'/default.jpg'" alt="User Picture" class="w-9 h-9 object-cover rounded-full">
                     <div class="flex flex-col">
                         <span class="text-sm">{{ user.firstname }} {{ user.lastname }}</span>
                         <span class="text-xs text-slate-400 capitalize">{{ user.role }}</span>
