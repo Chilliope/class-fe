@@ -3,7 +3,7 @@
         <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
             <!-- Logo -->
             <div class="flex justify-center mb-6">
-                <img :src="'/rk2.png'" alt="Logo" class="h-16 w-auto">
+                <img :src="'/educafy.png'" alt="Logo" class="h-16 w-auto">
             </div>
 
             <!-- Judul -->
@@ -16,19 +16,19 @@
                 <div>
                     <label class="block text-sm font-medium text-slate-600 mb-1">Email</label>
                     <input v-model="forms.email" type="email" placeholder="you@example.com"
-                        class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:outline-none"
+                        class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none"
                         required />
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-slate-600 mb-1">Password</label>
                     <input v-model="forms.password" type="password" placeholder="••••••••"
-                        class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:outline-none"
+                        class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none"
                         required />
                 </div>
 
                 <button type="submit"
-                    class="w-full py-2.5 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition">
+                    class="w-full py-2.5 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-lg transition">
                     Login
                 </button>
             </form>
