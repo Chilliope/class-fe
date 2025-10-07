@@ -1,7 +1,7 @@
 <template>
     <Navbar></Navbar>
     <div class="px-4 py-2 w-full lg:flex lg:justify-center mt-4 min-h-screen">
-        <div class="lg:w-[1200px]">
+        <div class="lg:w-[1200px] 2xl:w-[1440px]">
             <router-view></router-view>
         </div>
     </div>

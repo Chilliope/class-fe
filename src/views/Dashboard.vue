@@ -11,7 +11,15 @@
 
     <div class="mt-8 flex flex-col lg:flex-row gap-8">
         <div class="flex flex-col lg:w-full">
-            <h2 class="text-lg lg:text-xl font-semibold">Your Class</h2>
+            <div class="flex justify-between">
+                <h2 class="text-lg lg:text-xl font-semibold">Your Class</h2>
+                <div v-if="user.role == 'lead'">
+                    <router-link class="bg-sky-500 px-4 py-2 rounded-lg text-white text-center hover:bg-sky-600 hover:duration-150 flex items-center gap-1">
+                        <Plus></Plus>
+                        <span>Create</span>
+                    </router-link>
+                </div>
+            </div>
 
             <div class="mt-3 grid grid-cols-1 lg:grid-cols-3 gap-3">
                 <router-link v-for="course in courses" :key="course.name"
@@ -123,7 +131,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import useAuth from '../service/auth'
-import { Library, AlarmClockCheck, Lock } from 'lucide-vue-next'
+import { Library, AlarmClockCheck, Lock, Plus } from 'lucide-vue-next'
 
 const { getUser, user } = useAuth()
 

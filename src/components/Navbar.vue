@@ -1,6 +1,6 @@
 <template>
     <nav class="bg-white shadow-xs w-full h-16 flex justify-center px-4 py-2">
-        <div class="w-full lg:w-[1200px] flex justify-between items-center">
+        <div class="w-full lg:w-[1200px] 2xl:w-[1440px] flex justify-between items-center">
             <div>
                 <img :src="'/educafy.png'" alt="" class="w-full h-12 object-cover" />
             </div>
@@ -35,7 +35,7 @@
     </nav>
 
     <div v-if="isPopup" ref="popupRef"
-        class="bg-white h-max fixed top-20 right-4 border border-slate-200 w-44 rounded-lg p-2 shadow-lg">
+        class="bg-white h-max fixed top-20 right-4 border border-slate-200 w-44 rounded-lg p-2 shadow-lg z-10">
         <div class="flex gap-3 items-center border-b border-slate-200 pb-1">
             <div class="flex flex-col">
                     <span class="text-sm">{{ user.firstname }} {{ user.lastname }}</span>
