@@ -24,9 +24,24 @@ export default function useTeamPost() {
         }
     }
 
+    async function deleteTeamPost(id) {
+        const response = await confirm('Are You Sure?')
+
+        if(response.isConfirmed) {
+            try {
+                const response = await axios.delete(`/api/v1/team-post/${id}`)
+                accepted('Post Deleted')
+                getTeamPost()
+            } catch (error) {
+                rejected('failed')
+            }
+        }
+    }
+
     return {
         teamPosts,
         getTeamPost,
-        createTeamPost
+        createTeamPost,
+        deleteTeamPost
     }
 }

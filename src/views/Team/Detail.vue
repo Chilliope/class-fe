@@ -31,15 +31,22 @@
                         <div class="mt-4 border-b border-slate-200 pb-4">
                             <p>{{ post.description }}</p>
                         </div>
-                        <div class="flex gap-8 mt-4">
-                            <button class="flex gap-1 text-green-500 hover:text-green-600 hover:duration-150">
-                                <Heart></Heart>
-                                <span>4</span>
-                            </button>
-                            <button class="flex gap-1 hover:text-slate-700 hover:duration-150">
-                                <MessageCircle></MessageCircle>
-                                <span>7</span>
-                            </button>
+                        <div class="flex justify-between items-end mt-4">
+                            <div class="flex gap-8">
+                                <button class="flex gap-1 text-green-500 hover:text-green-600 hover:duration-150">
+                                    <Heart></Heart>
+                                    <span>4</span>
+                                </button>
+                                <button class="flex gap-1 hover:text-slate-700 hover:duration-150">
+                                    <MessageCircle></MessageCircle>
+                                    <span>7</span>
+                                </button>
+                            </div>
+                            <form @submit.prevent="deleteTeamPost(post.id)" v-if="post.user.id == user.id">
+                                <button class="bg-red-200 text-red-500 hover:bg-red-500 hover:text-white hover:duration-150 px-4 py-2 rounded-lg">
+                                    Delete
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -115,7 +122,7 @@ const baseUrl = import.meta.env.VITE_API_URL
 
 const { user, getUser } = useAuth()
 const { show, team } = useTeam()
-const { teamPosts, getTeamPost, createTeamPost } = useTeamPost()
+const { teamPosts, getTeamPost, createTeamPost, deleteTeamPost } = useTeamPost()
 
 const showModal = ref(false)
 
