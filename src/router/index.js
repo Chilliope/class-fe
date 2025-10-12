@@ -45,6 +45,11 @@ const router = createRouter({
                     name: 'Team',
                     component: Team
                 },
+                {
+                    path: '/team/:slug',
+                    name: 'Team Detail',
+                    component: () => import('../views/Team/Detail.vue')
+                }
             ]
         }
     ]

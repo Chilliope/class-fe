@@ -19,7 +19,7 @@
             </ul>
             <div class="hidden lg:flex gap-6 items-center">
                 <div class="flex gap-2 items-center">
-                    <img :src="'/default.jpg'" alt="User Picture" class="w-9 h-9 object-cover rounded-full">
+                    <img :src="baseUrl + '/' + user.image" alt="User Picture" class="w-9 h-9 object-cover rounded-full">
                     <div class="flex flex-col">
                         <span class="text-sm">{{ user.firstname }} {{ user.lastname }}</span>
                         <span class="text-xs text-slate-400 capitalize">{{ user.role }}</span>
@@ -71,6 +71,8 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { Menu, Gauge, FolderKanban, Users, LogOut } from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
 import useAuth from '../service/auth'
+
+const baseUrl = import.meta.env.VITE_API_URL
 
 const isPopup = ref(false)
 const popupRef = ref(null)

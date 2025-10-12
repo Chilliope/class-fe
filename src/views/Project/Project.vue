@@ -1,9 +1,5 @@
 <template>
     <div class="flex flex-col-reverse lg:flex-row justify-between">
-        <div class="flex flex-col">
-            <!-- <h1 class="text-xl lg:text-2xl">Hi, <span class="font-medium">{{ user.firstname }}</span></h1> -->
-            <!-- <h2 class="text-lg lg:text-xl">Welcome back to Dashboard</h2> -->
-        </div>
         <div class="flex justify-end gap-2">
             <router-link class="text-sky-500 hover:text-sky-600 hover:duration-150" to="/dashboard">Dashboard</router-link>
             <span class="text-slate-500">/</span>

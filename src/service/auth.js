@@ -21,8 +21,12 @@ export default function useAuth() {
     }
 
     async function getUser() {
-        const response = await axios.get('/api/user')
-        user.value = response.data
+        try {            
+            const response = await axios.get('/api/user')
+            user.value = response.data
+        } catch (error) {
+            removeToken()
+        }
     }
 
     

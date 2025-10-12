@@ -1,9 +1,5 @@
 <template>
     <div class="flex flex-col-reverse lg:flex-row justify-between">
-        <div class="flex flex-col">
-            <!-- <h1 class="text-xl lg:text-2xl">Hi, <span class="font-medium">{{ user.firstname }}</span></h1> -->
-            <!-- <h2 class="text-lg lg:text-xl">Welcome back to Dashboard</h2> -->
-        </div>
         <div class="flex justify-end gap-2">
             <router-link class="text-sky-500 hover:text-sky-600 hover:duration-150"
                 to="/dashboard">Dashboard</router-link>
@@ -26,11 +22,11 @@
                     </div>
                 </div>
                 <div class="mt-3 grid grid-cols-1 lg:grid-cols-3 gap-3 ">
-                    <div class="bg-white shadow-xs rounded-lg w-full h-max px-4 py-2">
+                    <router-link :to="'/team/' + team.slug" v-for="team in team" :key="team.id" class="bg-white shadow-xs rounded-lg w-full h-max px-4 py-2 hover:shadow-md transition-all duration-200">
                         <img src="https://img.freepik.com/free-vector/watercolor-galaxy-background_23-2149225176.jpg?semt=ais_hybrid&w=740&q=80"
                             alt="Team Banner" class="w-full h-24 object-cover rounded-lg">
                         <div class="mt-1">
-                            <h6 class="font-semibold">Antariksa Team</h6>
+                            <h6 class="font-semibold">{{ team.team }} Team</h6>
                             <div class="flex flex-col lg:flex-row gap-1 mt-3">
                                 <div v-for="member in members" class="flex gap-2 items-center">
                                     <img :src="member.image" alt="Member Picture" class="w-8 h-8 rounded-full">
@@ -51,63 +47,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="bg-white shadow-xs rounded-lg w-full h-max px-4 py-2">
-                        <img src="https://img.freepik.com/free-vector/watercolor-galaxy-background_23-2149225176.jpg?semt=ais_hybrid&w=740&q=80"
-                            alt="Team Banner" class="w-full h-24 object-cover rounded-lg">
-                        <div class="mt-1">
-                            <h6 class="font-semibold">Antariksa Team</h6>
-                            <div class="flex flex-col lg:flex-row gap-1 mt-3">
-                                <div v-for="member in members" class="flex gap-2 items-center">
-                                    <img :src="member.image" alt="Member Picture" class="w-8 h-8 rounded-full">
-                                    <!-- <div class="flex flex-col">
-                                        <span>{{ member.name }}</span>
-                                        <span class="text-slate-400 text-xs lg:text-sm capitalize">{{ member.role }}</span>
-                                    </div> -->
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="mt-3 border border-slate-200">
-                        <div class="flex flex-col gap-3 mt-3">
-                            <div class="flex gap-2 items-center">
-                                <img :src="'4.png'" alt="Member Picture" class="w-8 h-8 rounded-full">
-                                <div class="flex flex-col">
-                                    <span>Erlang Andriyanputra</span>
-                                    <span class="text-slate-400 text-xs lg:text-sm capitalize">lead</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white shadow-xs rounded-lg w-full h-max px-4 py-2">
-                        <img src="https://img.freepik.com/free-vector/watercolor-galaxy-background_23-2149225176.jpg?semt=ais_hybrid&w=740&q=80"
-                            alt="Team Banner" class="w-full h-24 object-cover rounded-lg">
-                        <div class="mt-1">
-                            <h6 class="font-semibold">Antariksa Team</h6>
-                            <div class="flex flex-col lg:flex-row gap-1 mt-3">
-                                <div v-for="member in members" class="flex gap-2 items-center">
-                                    <img :src="member.image" alt="Member Picture" class="w-8 h-8 rounded-full">
-                                    <!-- <div class="flex flex-col">
-                                        <span>{{ member.name }}</span>
-                                        <span class="text-slate-400 text-xs lg:text-sm capitalize">{{ member.role }}</span>
-                                    </div> -->
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="mt-3 border border-slate-200">
-                        <div class="flex flex-col gap-3 mt-3">
-                            <div class="flex gap-2 items-center">
-                                <img :src="'4.png'" alt="Member Picture" class="w-8 h-8 rounded-full">
-                                <div class="flex flex-col">
-                                    <span>Erlang Andriyanputra</span>
-                                    <span class="text-slate-400 text-xs lg:text-sm capitalize">lead</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </router-link>
                 </div>
             </div>
             <div class="lg:w-2/5">
-                <h1 class="font-medium">Your Team</h1>
+                <h1 class="font-medium">Handled Team</h1>
                 <div class="bg-white shadow-xs rounded-lg h-max px-4 py-2 mt-3">
                     <img src="https://img.freepik.com/free-vector/watercolor-galaxy-background_23-2149225176.jpg?semt=ais_hybrid&w=740&q=80"
                         alt="Team Banner" class="w-full h-24 object-cover rounded-lg">
@@ -156,18 +100,6 @@
                         class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-sky-400 outline-none resize-none"></textarea>
                 </div>
 
-                <div>
-                    <label class="text-sm text-gray-600">Image URL (optional)</label>
-                    <input type="file" placeholder="Enter image URL"
-                        class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-sky-400 outline-none">
-                </div>
-
-                <div>
-                    <label class="text-sm text-gray-600">Banner URL (optional)</label>
-                    <input type="file" placeholder="Enter banner URL"
-                        class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-sky-400 outline-none">
-                </div>
-
                 <div class="flex justify-end gap-2 mt-4">
                     <button type="button" @click="showModal = false"
                         class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100">
@@ -183,12 +115,12 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import useAuth from '../../service/auth'
 import useTeam from '../../service/data/team'
 
 const { user, getUser } = useAuth()
-const { create } = useTeam()
+const { team, index, create } = useTeam()
 
 const showModal = ref(false)
 
@@ -199,8 +131,9 @@ const form = ref({
     banner: ''
 })
 
-const submitForm = () => {
-    create(form.value)
+const submitForm = async () => {
+    await create(form.value)
+    await index()
     showModal.value = false
 }
 
@@ -225,4 +158,8 @@ const members = [
 onMounted(() => {
     getUser()
 })
+
+watch(team,  
+    index()
+)
 </script>
