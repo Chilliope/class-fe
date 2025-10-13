@@ -65,9 +65,9 @@
             </div>
         </div>
         <div class="flex flex-col lg:w-2/5">
-            <h2 class="text-lg lg:text-xl font-semibold">Current Class</h2>
+            <!-- <h2 class="text-lg lg:text-xl font-semibold">Current Class</h2> -->
 
-            <div class="mt-3 w-full">
+            <div class="mt-[52px] w-full">
                 <router-link to="" v-for="current in currentClass"
                     class="bg-white flex flex-col w-full h-max shadow-xs rounded-lg px-4 py-2 overflow-hidden hover:shadow-md transition-all duration-200">
                     <div class="font-medium">{{ current.name }}</div>

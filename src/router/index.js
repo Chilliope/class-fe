@@ -4,6 +4,7 @@ import Index from "../views/Index.vue";
 import Dashboard from "../views/Dashboard.vue";
 import Project from "../views/Project/Project.vue";
 import Team from "../views/Team/Team.vue";
+import Member from "../views/Member/Member.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -49,6 +50,11 @@ const router = createRouter({
                     path: '/team/:slug',
                     name: 'Team Detail',
                     component: () => import('../views/Team/Detail.vue')
+                },
+                {
+                    path: '/member',
+                    name: 'Member',
+                    component: Member
                 }
             ]
         }

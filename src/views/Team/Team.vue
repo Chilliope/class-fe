@@ -50,9 +50,9 @@
                     </router-link>
                 </div>
             </div>
-            <div class="lg:w-2/5">
-                <h1 class="font-medium">Handled Team</h1>
-                <div class="bg-white shadow-xs rounded-lg h-max px-4 py-2 mt-3">
+            <div class="lg:w-2/5 mt-[52px]">
+                <!-- <h1 class="font-medium">Handled Team</h1> -->
+                <div class="bg-white shadow-xs rounded-lg h-max px-4 py-2">
                     <img src="https://img.freepik.com/free-vector/watercolor-galaxy-background_23-2149225176.jpg?semt=ais_hybrid&w=740&q=80"
                         alt="Team Banner" class="w-full h-24 object-cover rounded-lg">
                     <div class="mt-1">

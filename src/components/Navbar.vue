@@ -68,7 +68,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { Menu, Gauge, FolderKanban, Users, LogOut } from 'lucide-vue-next'
+import { Menu, Gauge, FolderKanban, Users, User, LogOut } from 'lucide-vue-next'
 import { useRoute } from 'vue-router'
 import useAuth from '../service/auth'
 
@@ -84,6 +84,7 @@ const items = [
     { path: '/dashboard', name: 'Dashboard', icon: Gauge },
     { path: '/project', name: 'Project', icon: FolderKanban },
     { path: '/team', name: 'Team', icon: Users },
+    { path: '/member', name: 'Member', icon: User },
 ]
 
 const togglePopup = () => {
