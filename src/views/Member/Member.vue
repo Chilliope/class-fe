@@ -32,11 +32,15 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             </p> -->
                         </div>
-                        <div class="flex items-center justify-between px-5 py-3">
-                            <span class="text-slate-600 font-medium">Antariksa Team</span>
-                            <button class="text-sm text-sky-600 hover:text-sky-700 font-medium transition-colors">
-                                View
+                        <div class="flex items-center justify-end px-5 py-3 gap-3">
+                            <button @click="popupEdit(member.id)" class="bg-blue-200 text-blue-500 px-4 w-24 py-2 rounded-lg flex justify-center gap-2 hover:bg-blue-500 hover:text-white hover:duration-150">
+                                <span>Edit</span>
                             </button>
+                            <form @submit.prevent="deleteMember(member.id)">
+                                <button class="bg-red-200 text-red-500 px-4 w-24 py-2 rounded-lg flex justify-center gap-2 hover:bg-red-500 hover:text-white hover:duration-150">
+                                <span>Delete</span>
+                            </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -87,18 +91,56 @@
             </form>
         </div>
     </div>
+    <div v-if="showModalEdit" class="fixed inset-0 bg-black/50 bg-opacity-40 flex justify-center items-center z-50">
+        <div class="bg-white rounded-lg shadow-lg w-96 lg:w-[440px] 2xl:w-[600px] p-6">
+            <h2 class="text-lg font-semibold mb-4">Add Member</h2>
+
+            <form @submit.prevent="editMember(showMember, showMember.id)" class="flex flex-col gap-3">
+                <div class="flex flex-col gap-3 lg:flex-row">
+                    <div>
+                        <label class="text-sm text-gray-600">Firstname</label>
+                        <input type="text" v-model="showMember.firstname" placeholder="Firstname" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-sky-400 outline-none">
+                    </div>
+                    <div>
+                        <label class="text-sm text-gray-600">Lastname</label>
+                        <input type="text" v-model="showMember.lastname" placeholder="Lastname" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-sky-400 outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-sm text-gray-600">Email</label>
+                    <input type="email" v-model="showMember.email" placeholder="email@republikode.com" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-sky-400 outline-none">
+                </div>
+                <div>
+                    <label class="text-sm text-gray-600">Reset Password</label>
+                    <input type="password" v-model="showMember.password" placeholder="Password" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-sky-400 outline-none">
+                </div>
+
+                <div class="flex justify-end gap-2 mt-4">
+                    <button type="button" @click="showModalEdit = false"
+                        class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100">
+                        Cancel
+                    </button>
+                    <button type="submit" class="bg-sky-500 text-white px-4 py-2 rounded-lg hover:bg-sky-600">
+                        Edit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </template>
 
 <script setup>
 import { onMounted, ref, reactive } from 'vue'
 import useAuth from '../../service/auth'
 import useMember from '../../service/data/member'
-import { Plus } from 'lucide-vue-next'
+import { Plus, Pencil, Trash } from 'lucide-vue-next'
 
 const baseUrl = import.meta.env.VITE_API_URL
 const showModal = ref(false)
+const showModalEdit = ref(false)
 const { user, getUser } = useAuth()
-const { member, getMember, createMember } = useMember()
+const { member, showMember, getMember, getDetailMember, createMember, editMember, deleteMember } = useMember()
 
 const form = reactive({
     firstname: '',
@@ -107,6 +149,14 @@ const form = reactive({
     password: ''
 })
 
+function popupEdit(id) {
+    showModalEdit.value = true
+    console.log(id)
+    getDetailMember(id)
+}
+
+const memberId = 0;
+
 onMounted(() => {
     getUser()
     getMember()
@@ -114,6 +164,6 @@ onMounted(() => {
 
 function doCreateMember() {
     createMember({...form})
-    showModal.value = false
+    showModal.value = false 
 }
 </script>

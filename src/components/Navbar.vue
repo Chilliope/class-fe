@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <form @submit.prevent="doLogout">
-                    <button class="text-start rounded-lg hover:text-blue-500 hover:duration-150 flex gap-3 items-center">
+                    <button class="text-start rounded-lg hover:text-red-500 hover:duration-150 flex gap-3 items-center">
                         <LogOut class="w-4 h-4" />
                     </button>
                 </form>
@@ -56,7 +56,7 @@
         <ul class="pt-2">
             <li>
                 <form @submit.prevent="doLogout">
-                    <button class="w-full text-start rounded-lg text-blue-500 flex gap-3 items-center">
+                    <button class="w-full text-start rounded-lg text-red-500 flex gap-3 items-center">
                         <LogOut class="w-4 h-4" />
                         <span>Sign Out</span>
                     </button>

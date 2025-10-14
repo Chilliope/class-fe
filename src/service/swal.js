@@ -35,7 +35,7 @@ export default function useSwal() {
         const response = await Swal.fire({
             width: '250px',
             icon: 'question',
-            title: 'Konfirmasi',
+            title: 'Confirm',
             text: text == null ? 'Are You Sure?' : text,
             showCancelButton: true,
             confirmButtonColor: "#3b82f6",
